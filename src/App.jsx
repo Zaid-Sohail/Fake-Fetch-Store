@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Cardcomp from './Card/Cardcomp'
 
 function App() {
   let products = [
@@ -274,13 +275,9 @@ function App() {
         {
           products.map((x) => {
             let { id, title, price, description, category, image, rating } = x
-            return <div className="pro-card">
-              <img src={image} alt="" />
-              <h2>{title}</h2>
-              <h3>{description}</h3>
-              <p>{category}</p>
-              <h1>${price}</h1>
-            </div>
+            return (
+              <Cardcomp title={title} img={image} desc={description} cart={category} price={price} rating={rating}/>
+            )
 
           })
         }
