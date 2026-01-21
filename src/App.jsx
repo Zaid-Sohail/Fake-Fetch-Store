@@ -254,7 +254,7 @@ function App() {
     < >
       <nav className="navbar">
         <div className="nav-logo">
-          <h2>MyStore</h2>
+          <h2>Ghafoor Sports</h2>
         </div>
 
         <ul className="nav-links">
