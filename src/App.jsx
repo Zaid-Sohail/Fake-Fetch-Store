@@ -276,7 +276,7 @@ function App() {
           products.map((x) => {
             let { id, title, price, description, category, image, rating } = x
             return (
-              <Cardcomp title={title} img={image} desc={description} cart={category} price={price} rating={rating}/>
+              <Cardcomp title={title} img={image} desc={description} cate={category} price={price} rate={rating.rate}/>
             )
 
           })
