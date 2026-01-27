@@ -6,18 +6,21 @@ import Cardcomp from './Card/Cardcomp'
 import axios from 'axios'
 
 function App() {
-  let products = []
+  let [products, SetProducts] = useState([])
   async function fetchProducts() {
     try {
       let req = await axios.get('https://dummyjson.com/products')
-      console.log(req);
-      
+      SetProducts(req.data.products)
+
+
     } catch (error) {
-      
+      console.log(error)
+
     }
-    
+
   }
-  
+  fetchProducts()
+
 
 
 
@@ -29,7 +32,9 @@ function App() {
           <h2>Ghafoor Sports</h2>
         </div>
 
-        <ul className="nav-links">
+
+
+        <ul className="nav-links ">
           <li>Home</li>
           <li>Products</li>
           <li>Categories</li>
@@ -41,13 +46,16 @@ function App() {
           <button className="cart-btn">🛒 Cart</button>
         </div>
       </nav>
+        <div >
+          <h1 className='bg-blue-500 text-white text-center flex text-bl justify-center m-6px'>Gallery</h1>
+        </div>
 
       <div className="product" style={{ padding: "10px", display: "flex", flexWrap: "wrap", justifyContent: "space-between" }}>
         {
           products.map((x) => {
-            let { id, title, price, description, category, image, rating } = x
+            let { id, title, price, description, category, thumbnail, rating } = x
             return (
-              <Cardcomp title={title} img={image} desc={description} cate={category} price={price} rate={rating.rate}/>
+              <Cardcomp title={title} img={thumbnail} desc={description} cate={category} price={price} rate={rating.rate} />
             )
 
           })

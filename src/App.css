@@ -1,15 +1,23 @@
 /* Navbar */
+/* RESET (optional but recommended) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ================= NAVBAR ================= */
 .navbar {
   width: 100%;
-  box-sizing: border-box;   /* 🔥 */
-  
   height: 70px;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -19,13 +27,14 @@
 .nav-logo h2 {
   color: #1a73e8;
   font-weight: 700;
+  letter-spacing: 1px;
 }
 
 /* Links */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 25px;
+  gap: 30px;
 }
 
 .nav-links li {
@@ -34,6 +43,11 @@
   font-weight: 500;
   color: #333;
   position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links li:hover {
+  color: #1a73e8;
 }
 
 /* Hover underline */
@@ -41,10 +55,10 @@
   content: "";
   position: absolute;
   left: 0;
-  bottom: -5px;
+  bottom: -6px;
   width: 0%;
   height: 2px;
-  background: #1a73e8;
+  background: linear-gradient(90deg, #1a73e8, #0f5ed7);
   transition: width 0.3s ease;
 }
 
@@ -59,11 +73,11 @@
 }
 
 .login-btn {
-  padding: 8px 16px;
+  padding: 8px 18px;
   border: 1px solid #1a73e8;
   background: transparent;
   color: #1a73e8;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: 500;
   transition: all 0.3s ease;
@@ -72,50 +86,53 @@
 .login-btn:hover {
   background: #1a73e8;
   color: #ffffff;
+  transform: translateY(-2px);
 }
 
 .cart-btn {
-  padding: 10px 16px;   /* vertical + horizontal */
+  padding: 10px 18px;
   border: none;
-  background: #1a73e8;
+  background: linear-gradient(135deg, #1a73e8, #0f5ed7);
   color: #ffffff;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: 500;
-  white-space: nowrap;  /* 🔥 text wrap se bachaata hai */
+  white-space: nowrap;
+  transition: all 0.3s ease;
 }
-
 
 .cart-btn:hover {
-  background: #0f5ed7;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 16px rgba(26, 115, 232, 0.4);
 }
 
+/* ================= PRODUCTS ================= */
 .product {
-  padding: 20px;
+  padding: 30px;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 25px;
   justify-content: center;
-  background-color: #f5f7fa;
+  background: linear-gradient(180deg, #f5f7fa, #eef1f6);
 }
 
 /* Card */
 .pro-card {
   width: 280px;
   background: #ffffff;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: all 0.35s ease;
   display: flex;
   flex-direction: column;
-  padding: 15px;
-  
+  padding: 18px;
+  position: relative;
 }
 
 .pro-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
 }
 
 /* Image */
@@ -123,35 +140,41 @@
   width: 100%;
   height: 200px;
   object-fit: contain;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+  transition: transform 0.3s ease;
+}
+
+.pro-card:hover img {
+  transform: scale(1.05);
 }
 
 /* Title */
 .pro-card h2 {
-  font-size: 25px;
+  font-size: 18px;
   font-weight: 600;
-  color: #333;
-  margin-bottom: 8px;
+  color: #222;
+  margin-bottom: 6px;
   height: 45px;
   overflow: hidden;
 }
 
 /* Description */
 .pro-card h3 {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 400;
   color: #666;
   margin-bottom: 10px;
   height: 55px;
   overflow: hidden;
+  line-height: 1.4;
 }
+
+/* Highlight text */
 .pro-card h4 {
-   font-size: 25px;
-  font-weight: 400;
+  font-size: 16px;
+  font-weight: 500;
   color: #0b8ffc;
-  margin-bottom: 8px;
-  height: 45px;
-  overflow: hidden;
+  margin-bottom: 6px;
 }
 
 /* Category */
@@ -159,12 +182,29 @@
   font-size: 13px;
   color: #777;
   text-transform: capitalize;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 /* Price */
 .pro-card h1 {
   font-size: 22px;
   color: #1a73e8;
-  /* margin-top: auto; */
+  margin-top: auto;
+  font-weight: 600;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .pro-card {
+    width: 100%;
+    max-width: 340px;
+  }
 }
